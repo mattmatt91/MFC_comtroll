@@ -1,0 +1,41 @@
+{
+    "mfcs": [
+        {
+            "port": 502,
+            "ip": "192.168.1.10",
+            "max_flow": 100.0,
+            "name": "air_dry"
+        },
+        {
+            "port": 502,
+            "ip": "192.168.1.11",
+            "max_flow": 200.0,
+            "name": "air_wet"
+        },
+        {
+            "port": 502,
+            "ip": "192.168.1.12",
+            "max_flow": 100.0,
+            "name": "analyt_1"
+        },
+        {
+            "port": 502,
+            "ip": "192.168.1.13",
+            "max_flow": 200.0,
+            "name": "analyt_2"
+        },
+        {
+            "port": 502,
+            "ip": "192.168.1.13",
+            "max_flow": 200.0,
+            "name": "analyt_solid"
+        }
+    ],
+    "valves": {
+        "valve_1": 1,
+        "valve_2": 2,
+        "valve_3": 3,
+        "valve_4": 4,
+        "valve_5": 5
+    }
+}
