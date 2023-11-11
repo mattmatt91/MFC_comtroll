@@ -2,7 +2,7 @@ from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 import json
 from typing import List
-from mfc import MFC
+from hardware.mfc import MFC
 
 
 class MFCConfig(BaseModel):

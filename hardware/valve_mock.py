@@ -18,6 +18,9 @@ class MockValves:
 
     def get_states(self):
         return self.valve_states
+    
+    def close(self):
+        pass
 
 if __name__ == "__main__":
     # Example usage

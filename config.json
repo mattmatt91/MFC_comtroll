@@ -3,39 +3,39 @@
         {
             "port": 502,
             "ip": "192.168.1.10",
-            "max_flow": 100.0,
+            "max_flow": 500.0,
             "name": "air_dry"
         },
         {
             "port": 502,
             "ip": "192.168.1.11",
-            "max_flow": 200.0,
+            "max_flow": 500.0,
             "name": "air_wet"
         },
         {
             "port": 502,
             "ip": "192.168.1.12",
-            "max_flow": 100.0,
-            "name": "analyt_1"
+            "max_flow": 200.0,
+            "name": "test_gas_1"
         },
         {
             "port": 502,
             "ip": "192.168.1.13",
             "max_flow": 200.0,
-            "name": "analyt_2"
+            "name": "test_gas_2"
         },
         {
             "port": 502,
-            "ip": "192.168.1.13",
-            "max_flow": 200.0,
+            "ip": "192.168.1.15",
+            "max_flow": 20.0,
             "name": "analyt_solid"
         }
     ],
     "valves": {
-        "valve_1": 1,
-        "valve_2": 2,
-        "valve_3": 3,
-        "valve_4": 4,
-        "valve_5": 5
+        "air_wet_a": 1,
+        "solid_a": 2,
+        "solid_b": 3,
+        "test_gas_1_a": 4,
+        "test_gas_2_a": 5
     }
 }
