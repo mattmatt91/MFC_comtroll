@@ -1,6 +1,7 @@
 import json
 from hardware import MFC
 from hardware import Valves
+import hardware.calculator as ca
 
 
 class GasManagement:
@@ -41,12 +42,18 @@ class GasManagement:
             states['mfcs'][name] = mfc.get_data()
         return states
 
+    def exec_cmds(self, cmds:dict):
+        computed_cmds = ca.compute_cmd(cmds)
+        cmds_mfcs = computed_cmds["mfc"]
+        cmds_valves = computed_cmds["valve"]
+        self.set_mfc_states(cmds_mfcs)
+        self.set_valve_states(cmds_valves)
+
     def set_valve_states(self, valve_states):
         self.devices['valves'].operate_valve(valve_states)
         return "Operation successful for valves."
 
     def set_mfc_states(self, mfc_states):
-        print(self.devices['mfcs'])
         # Sets the state of the MFCs
         for mfc_info in mfc_states:
             for name, point in mfc_info.items():

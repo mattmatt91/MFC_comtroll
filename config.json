@@ -16,19 +16,19 @@
             "port": 502,
             "ip": "192.168.1.12",
             "max_flow": 200.0,
-            "name": "test_gas_1"
+            "name": "gas_1"
         },
         {
             "port": 502,
             "ip": "192.168.1.13",
             "max_flow": 200.0,
-            "name": "test_gas_2"
+            "name": "gas_2"
         },
         {
             "port": 502,
             "ip": "192.168.1.15",
             "max_flow": 20.0,
-            "name": "analyt_solid"
+            "name": "solid"
         }
     ],
     "valves": {

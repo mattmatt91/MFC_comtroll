@@ -8,13 +8,11 @@ class MockValves:
     def operate_valve(self, valve_operations):
         # valve_operations is a list of dicts, each dict contains valve name and a Boolean
         for operation in valve_operations:
-                print(operation)
-                valve,state = operation.popitem()
-                print(state, valve)
-                if valve in self.valves:
-                    self.valve_states[valve] = state
+                state = valve_operations[operation]
+                if operation in self.valves:
+                    self.valve_states[operation] = state
                 else:
-                    print(f"Valve '{valve}' not found.")
+                    print(f"Valve '{operation}' not found.")
 
     def get_states(self):
         return self.valve_states
