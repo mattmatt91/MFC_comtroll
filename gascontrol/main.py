@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from hardware.GasManagement import GasManagement
 import logging
 
@@ -6,8 +7,20 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("uvicorn")
 
-# Initialize FastAPI app and GasManagement
+# Initialize FastAPI app 
 app = FastAPI()
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Specify the React app's origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# init and GasManagement
 gas_management = GasManagement('config.json')
 
 @app.get("/")
@@ -26,6 +39,7 @@ async def get_data():
     """
     try:
         data = gas_management.get_device_states()
+        print(data)
         return data
     except Exception as e:
         logger.error(f"Error in get_data: {e}")
