@@ -1,0 +1,11 @@
+version: "1"
+services:
+  gascontrol:
+   build:
+     context: ./gascontrol
+   ports:
+     - "9000:9000"
+   privileged: true
+   environment:
+   - OPERATING_SYSTEM=mock
+

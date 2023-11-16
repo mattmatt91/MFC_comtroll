@@ -59,14 +59,17 @@ def calculate_flow_rates(desired_concentrations, max_flows, F_total:int, portion
     F_dry = F_total - (F_test1 + F_test2 + F_test3 + F_wet)
 
     # Check if the mixture is possible
-    # if F_dry < 0 or F_dry > max_flows["dry_air"]:
-    #     return "Mixture not possible: Dry air flow out of range."
+    if F_dry < 0 or F_dry > max_flows["dry_air"]:
+        return "Mixture not possible: Dry air flow out of range."
 
-    # if F_wet > max_flows["wet_air"]:
-    #     return "Mixture not possible: Wet air flow out of range."
+    if F_wet > max_flows["wet_air"]:
+        return "Mixture not possible: Wet air flow out of range."
 
-    # if F_test1 > max_flows["test_gas_1"] or F_test2 > max_flows["test_gas_2"] or F_test3 > max_flows["test_gas_3"]:
-    #     return "Mixture not possible: Test gas flow out of range."
+    if F_test1 > max_flows["test_gas_1"] or F_test2 > max_flows["test_gas_2"] or F_test3 > max_flows["test_gas_3"]:
+        return "Mixture not possible: Test gas flow out of range."
+    
+    if F_test1 < 0 or F_test2 < 0 or F_test3 <0:
+        return "Mixture not possible: Test gas flow must be bigger than 0."
 
     # Return flow rates in a dictionary
     return {
@@ -77,17 +80,3 @@ def calculate_flow_rates(desired_concentrations, max_flows, F_total:int, portion
         "solid": F_test3
     }
 
-# Example usage
-desired_concentrations = {
-    "test_gas_1": 500,  # Desired concentration for test gas 1 in ppm
-    "test_gas_2": 300,  # Desired concentration for test gas 2 in ppm
-    "test_gas_3": 200   # Desired concentration for test gas 3 in ppm
-}
-
-max_flows = {
-    "dry_air": 4000,    # Max flow for dry air in sccm
-    "wet_air": 4000,    # Max flow for wet air in sccm
-    "test_gas_1": 20,   # Max flow for test gas 1 in sccm
-    "test_gas_2": 20,   # Max flow for test gas 2 in sccm
-    "test_gas_3": 20    # Max flow for test gas 3 in sccm
-}

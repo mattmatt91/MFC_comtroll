@@ -5,7 +5,7 @@ class MockValves:
         self.valves = valve_config
         self.valve_states = {valve: False for valve in self.valves}  # False indicates closed
 
-    def operate_valve(self, valve_operations):
+    def operate_valve(self, valve_operations:dict):
         # valve_operations is a list of dicts, each dict contains valve name and a Boolean
         for operation in valve_operations:
                 state = valve_operations[operation]
