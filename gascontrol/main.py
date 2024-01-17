@@ -47,13 +47,14 @@ async def get_data():
 
 @app.post("/exec_cmds")
 async def set_cmds(cmds: dict):
+    print(cmds)
     """
     Endpoint to execute commands on devices.
     Accepts a dictionary of commands and executes them.
     """
-    try:
-        gas_management.exec_cmds(cmds)
-        return {"status": "Commands executed"}
-    except Exception as e:
-        logger.error(f"Error in set_cmds: {e}")
-        return {"error": str(e)}
+    # try:
+    gas_management.exec_cmds(cmds)
+    return {"status": "Commands executed"}
+    # except Exception as e:
+    #     logger.error(f"Error in set_cmds: {e}")
+    #     return {"error": str(e)}
