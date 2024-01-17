@@ -30,20 +30,12 @@ example_cmd = {
 }
 
 
-hostname = "gmu"
-port =9000
-# URL for POST request
-# post_url = f'http://{hostname}:{port}/exec_cmds'
-# post_response = post_test_data(post_url, example_cmd)
-# print("POST Request Response:", post_response.status_code, post_response.json())
 
-# URL for GET request
-get_url = f'http://{hostname}:{port}/data'
-get_response = get_test_data(get_url)
-print("GET Request Response:", get_response.status_code, get_response.json())
 if __name__ == "__main__":
     # URL for POST request
-    host_url = "http://192.168.1.23:9000"
+    host_url = "http://192.168.2.10:9000"
+
+
     post_url = f'{host_url}/exec_cmds'
     post_response = post_test_data(post_url, example_cmd)
     print("POST Request Response:", post_response.status_code, post_response.json())
