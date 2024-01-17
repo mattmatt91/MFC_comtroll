@@ -1,11 +1,14 @@
 version: "3.3"
 services:
   gascontrol:
-   build:
-     context: ./gascontrol
-   ports:
-     - "9000:9000"
-   privileged: true
-   environment:
-   - OPERATING_SYSTEM=mock
-
+    build:
+      context: ./gascontrol
+      dockerfile: Dockerfile
+    ports:
+        - "9000:9000"
+    environment:
+      - OPERATING_SYSTEM=rpi
+    devices:
+      - "/dev/gpiomem:/dev/gpiomem"
+    privileged: true
+    restart: always

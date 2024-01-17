@@ -12,19 +12,19 @@ class Valves:
         # Setup all valves as output and initialize them to closed (False)
         for pin in self.valves.values():
             GPIO.setup(pin, GPIO.OUT)
-            GPIO.output(pin, GPIO.LOW)
+            GPIO.output(pin, GPIO.HIGH)
 
     def operate_valve(self, valve_operations):
         # valve_operations is a list of dicts, each dict contains valve name and a Boolean
         for operation in valve_operations:
             for valve, state in operation.items():
                 if valve in self.valves:
-                    GPIO.output(self.valves[valve], GPIO.HIGH if state else GPIO.LOW)
+                    GPIO.output(self.valves[valve], GPIO.LOW if state else GPIO.HIGH)
                     self.valve_states[valve] = state
                 else:
                     print(f"Valve '{valve}' not found.")
 
-    def get_valve_states(self):
+    def get_states(self):
         return self.valve_states
 if __name__ == "__main__":
     # Example usage
