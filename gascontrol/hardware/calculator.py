@@ -59,19 +59,23 @@ def calculate_flow_rates(desired_concentrations, max_flows, F_total:int, portion
     F_dry = F_total - (F_test1 + F_test2 + F_test3 + F_wet)
 
     # Check if the mixture is possible
-    if F_dry < 0 or F_dry > max_flows["dry_air"]:
-        return "Mixture not possible: Dry air flow out of range."
-
-    if F_wet > max_flows["wet_air"]:
-        return "Mixture not possible: Wet air flow out of range."
-
-    if F_test1 > max_flows["test_gas_1"] or F_test2 > max_flows["test_gas_2"] or F_test3 > max_flows["test_gas_3"]:
-        return "Mixture not possible: Test gas flow out of range."
-    
-    if F_test1 < 0 or F_test2 < 0 or F_test3 <0:
-        return "Mixture not possible: Test gas flow must be bigger than 0."
-
-    # Return flow rates in a dictionary
+    # print(F_dry, type(F_dry))
+    # print(max_flows)
+    # exit()
+    # print(max_flows["dry_air"], type(max_flows["dry_air"]))
+    # if F_dry < 0 or F_dry > max_flows["dry_air"]:
+    #     return "Mixture not possible: Dry air flow out of range."
+# 
+    # if F_wet > max_flows["wet_air"]:
+    #     return "Mixture not possible: Wet air flow out of range."
+# 
+    # if F_test1 > max_flows["test_gas_1"] or F_test2 > max_flows["test_gas_2"] or F_test3 > max_flows["test_gas_3"]:
+    #     return "Mixture not possible: Test gas flow out of range."
+    # 
+    # if F_test1 < 0 or F_test2 < 0 or F_test3 <0:
+    #     return "Mixture not possible: Test gas flow must be bigger than 0."
+# 
+    # # Return flow rates in a dictionary
     return {
         "dry_air": F_dry,
         "wet_air": F_wet,

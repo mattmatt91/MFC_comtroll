@@ -20,7 +20,7 @@ copy_folder() {
 ssh -i "$SSH_KEY" "${SSH_USER}@${SSH_SERVER}" "mkdir -p ${DEST_DIR}"
 
 # Clear and prepare remote directory
-ssh -i "$SSH_KEY" "${SSH_USER}@${SSH_SERVER}" "cd ${DEST_DIR} && rm -rf gascontrol && mkdir gascontrol"
+# ssh -i "$SSH_KEY" "${SSH_USER}@${SSH_SERVER}" "cd ${DEST_DIR} && rm -rf gascontrol && mkdir gascontrol"
 
 # Copy folder
 copy_folder "$FOLDER1"
