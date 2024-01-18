@@ -116,13 +116,13 @@ class MFC():
 
 if __name__ == "__main__":
     mfc_config = {
-        "port": 502,
-        "ip": "192.168.2.142",
-        "max_flow": 1000.0,
-        "name": "air_wet"
-    }
+            "port": 502,
+            "ip": "192.168.2.157",
+            "max_flow": 20.0,
+            "name": "gas_2"
+        }
     mfc = MFC(host=mfc_config["ip"], port=mfc_config["port"], max_flow=mfc_config["max_flow"])
     print(mfc.get_data())
-    mfc.set_point(500)
+    mfc.set_point(20)
     print(mfc.get_data())
     mfc.close()
