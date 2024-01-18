@@ -16,23 +16,29 @@ class Valves:
 
     def operate_valve(self, valve_operations):
         # valve_operations is a list of dicts, each dict contains valve name and a Boolean
-        for operation in valve_operations:
-            for valve, state in operation.items():
-                if valve in self.valves:
-                    GPIO.output(self.valves[valve], GPIO.LOW if state else GPIO.HIGH)
-                    self.valve_states[valve] = state
-                else:
-                    print(f"Valve '{valve}' not found.")
+        for valve in valve_operations:
+           
+            if valve in self.valves:
+                GPIO.output(self.valves[valve], GPIO.LOW if valve_operations[valve] else GPIO.HIGH)
+                self.valve_states[valve] = valve_operations[valve]
+            else:
+                print(f"Valve '{valve}' not found.")
 
     def get_states(self):
         return self.valve_states
 if __name__ == "__main__":
     # Example usage
-    valve_config = {"valve_1": 17, "valve_2": 27, "valve_3": 22}
+    valve_config =  {
+        "air_wet_a": 18,
+        "solid_a": 23,
+        "solid_b": 15,
+        "test_gas_1_a": 24,
+        "test_gas_2_a": 14
+    }
     my_valves = Valves(valve_config)
 
     # Operate valves
-    my_valves.operate_valve([{"valve_1": True}, {"valve_2": False}])
+    my_valves.operate_valve([{"air_wet_a": True}, {"solid_a": False}])
 
     # Get current states
-    print(my_valves.get_valve_states())
+    print(my_valves.get_states())

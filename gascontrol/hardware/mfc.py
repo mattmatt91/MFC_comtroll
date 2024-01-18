@@ -85,11 +85,12 @@ class MFC():
         # print('point response float: ', ints_to_float(response))
         return ints_to_float(response)
 
-    def set_point(self, flow):
+    def set_point(self, flow:int):
+        print(flow)
         if flow > self.max_flow:
             raise ValueError("flow can't be bigger than max_flow")
         data = float_to_ints(flow)
-        # print(data)
+        print(data)
         self.bus.write_multiple_registers(int('0xA000', 16), data)
 
     def get_data(self):
@@ -116,9 +117,12 @@ class MFC():
 if __name__ == "__main__":
     mfc_config = {
         "port": 502,
-        "ip": "192.168.2.141",
+        "ip": "192.168.2.142",
         "max_flow": 1000.0,
-        "name": "air_dry"
+        "name": "air_wet"
     }
     mfc = MFC(host=mfc_config["ip"], port=mfc_config["port"], max_flow=mfc_config["max_flow"])
     print(mfc.get_data())
+    mfc.set_point(500)
+    print(mfc.get_data())
+    mfc.close()

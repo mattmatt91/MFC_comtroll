@@ -13,13 +13,13 @@ def get_test_data(url):
 
 example_cmd = {
     "wash": {
-        "gas_1": True,
-        "gas_2": True,
+        "gas_1": False,
+        "gas_2": False,
         "solid": False
     },
 
-    "mix": {"gas_1": 100, # ppm
-            "gas_2": 100,
+    "mix": {"gas_1": 0, # ppm
+            "gas_2": 0,
             "solid": 0},
 
     "total_flow": 200, # sccm
@@ -41,6 +41,6 @@ if __name__ == "__main__":
     print("POST Request Response:", post_response.status_code, post_response.json())
     
     # URL for GET request
-    get_url = f'{host_url}/data'
-    get_response = get_test_data(get_url)
-    print("GET Request Response:", get_response.status_code, get_response.json())
+    # get_url = f'{host_url}/data'
+    # get_response = get_test_data(get_url)
+    # print("GET Request Response:", get_response.status_code, get_response.json())

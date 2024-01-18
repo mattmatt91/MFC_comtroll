@@ -47,7 +47,6 @@ async def get_data():
 
 @app.post("/exec_cmds")
 async def set_cmds(cmds: dict):
-    print(cmds)
     """
     Endpoint to execute commands on devices.
     Accepts a dictionary of commands and executes them.
