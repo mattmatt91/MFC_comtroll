@@ -43,7 +43,7 @@ class MockMFC:
         if flow > self.max_flow:
             raise ValueError("Flow can't be bigger than max_flow")
         self.point = flow
-        print(f"set flow to {flow}")
+        # print(f"set flow to {flow}")
 
     def get_data(self):
         try:

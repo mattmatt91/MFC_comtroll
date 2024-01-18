@@ -7,7 +7,7 @@ services:
     ports:
         - "9000:9000"
     environment:
-      - OPERATING_SYSTEM=rpi
+      - OPERATING_SYSTEM=mock
     devices:
       - "/dev/gpiomem:/dev/gpiomem"
     privileged: true

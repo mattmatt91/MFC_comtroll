@@ -14,16 +14,16 @@ def get_test_data(url):
 example_cmd = {
     "wash": {
         "gas_1": False,
-        "gas_2": False,
+        "gas_2": True,
         "solid": False
     },
 
-    "mix": {"gas_1": 0, # ppm
+    "mix": {"gas_1": 100, # ppm
             "gas_2": 0,
-            "solid": 0},
+            "solid": 200},
 
     "total_flow": 200, # sccm
-    "portion_wet": 0.9,
+    "portion_wet": 0.4,
     "flow_wash": 20,
 
 
@@ -33,7 +33,7 @@ example_cmd = {
 
 if __name__ == "__main__":
     # URL for POST request
-    host_url = "http://192.168.2.10:9000"
+    host_url = "http://localhost:9000"
 
 
     post_url = f'{host_url}/exec_cmds'
@@ -41,6 +41,6 @@ if __name__ == "__main__":
     print("POST Request Response:", post_response.status_code, post_response.json())
     
     # URL for GET request
-    # get_url = f'{host_url}/data'
-    # get_response = get_test_data(get_url)
+    get_url = f'{host_url}/data'
+    get_response = get_test_data(get_url)
     # print("GET Request Response:", get_response.status_code, get_response.json())

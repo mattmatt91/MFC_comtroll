@@ -37,5 +37,10 @@
         "solid_b": 15,
         "test_gas_1_a": 24,
         "test_gas_2_a": 14
+    },
+    "test_gases": {
+        "test_gas_1": 10000,
+        "test_gas_2": 10000,
+        "test_gas_solid": 10000
     }
 }

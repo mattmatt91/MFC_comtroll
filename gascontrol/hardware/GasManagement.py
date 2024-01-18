@@ -11,9 +11,9 @@ class GasManagement:
 
     def load_config(self, config_file):
         with open(config_file, 'r') as file:
-            config = json.load(file)
-            self.init_valves(config["valves"])
-            self.init_mfcs(config.get('mfcs', []))
+            self.config = json.load(file)
+            self.init_valves(self.config["valves"])
+            self.init_mfcs(self.config.get('mfcs', []))
 
     def init_valves(self, valve_config):
         self.devices['valves'] = Valves(valve_config)
@@ -43,7 +43,7 @@ class GasManagement:
         return states
 
     def exec_cmds(self, cmds:dict):
-        computed_cmds = ca.compute_cmd(cmds)
+        computed_cmds = ca.compute_cmd(cmds, self.config["test_gases"])
         cmds_mfcs = computed_cmds["mfc"]
         cmds_valves = computed_cmds["valve"]
         self.set_mfc_states(cmds_mfcs)

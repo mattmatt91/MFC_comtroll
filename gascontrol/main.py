@@ -39,7 +39,7 @@ async def get_data():
     """
     try:
         data = gas_management.get_device_states()
-        print(data)
+        # print(data)
         return data
     except Exception as e:
         logger.error(f"Error in get_data: {e}")
