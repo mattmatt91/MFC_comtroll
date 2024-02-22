@@ -8,7 +8,7 @@ SSH_KEY="C:/Users/PC/Desktop/private_key.ppk" # Replace with your actual key pat
 
 # Folder to copy
 FOLDER1="gascontrol"
-ADDITIONAL_FILES=("docker-compose.yaml")
+ADDITIONAL_FILES=("docker-compose.yaml", "test_api.py")
 
 # Copy folder using scp
 copy_folder() {

@@ -34,10 +34,11 @@ example_cmd = {
 if __name__ == "__main__":
     # URL for POST request
     host_url = "http://localhost:9000"
+    host_url = "https://192.168.2.10:9000"
 
 
-    post_url = f'{host_url}/exec_cmds'
-    post_response = post_test_data(post_url, example_cmd)
+    # post_url = f'{host_url}/exec_cmds'
+    post_response = post_test_data(host_url, example_cmd)
     print("POST Request Response:", post_response.status_code, post_response.json())
     
     # URL for GET request
