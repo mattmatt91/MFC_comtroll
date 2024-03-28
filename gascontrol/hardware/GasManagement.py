@@ -43,9 +43,11 @@ class GasManagement:
         return states
 
     def exec_cmds(self, cmds:dict):
+        
         computed_cmds = ca.compute_cmd(cmds, self.config["test_gases"])
         cmds_mfcs = computed_cmds["mfc"]
         cmds_valves = computed_cmds["valve"]
+        
         self.set_mfc_states(cmds_mfcs)
         self.set_valve_states(cmds_valves)
 
@@ -54,7 +56,6 @@ class GasManagement:
         return "Operation successful for valves."
 
     def set_mfc_states(self, mfc_states):
-        # Sets the state of the MFCs
         for mfc_info in mfc_states:
             for name, point in mfc_info.items():
                 if name in self.devices['mfcs']:

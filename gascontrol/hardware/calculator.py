@@ -61,12 +61,12 @@ def calculate_flow_rates(desired_concentrations, F_total:int, portion_wet:float,
     # Calculating flow rate for dry air
     F_dry = F_total - (F_test1 + F_test2 + F_test3 + F_wet)
 
-    print("flow total: ",F_total)
-    print("flow dry: ",F_dry)
-    print("flow wet: ",F_wet)
-    print("F_test1", F_test1) 
-    print("F_test2", F_test2) 
-    print("F_test3", F_test3) 
+    # print("flow total: ",F_total)
+    # print("flow dry: ",F_dry)
+    # print("flow wet: ",F_wet)
+    # print("F_test1", F_test1) 
+    # print("F_test2", F_test2) 
+    # print("F_test3", F_test3) 
 
     
     if F_test1 < 0 or F_test2 < 0 or F_test3 < 0 or F_dry < 0 or F_wet <0:

@@ -35,14 +35,17 @@ def float_to_ints(flo):
 
 class MFC():
     def __init__(self, host, port, max_flow):
-        self.bus = ModbusClient(host=host, port=port, auto_open=True)
-        time.sleep(0.2)
-        self.bus.open()
-        self.max_flow = max_flow
-        print("init")
-        # self.open_valve(False)
-        # self.close_valve(True)
-        self.reset()
+        try:
+            self.bus = ModbusClient(host=host, port=port, auto_open=True)
+            time.sleep(0.2)
+            self.bus.open()
+            self.max_flow = max_flow
+            print("init")
+            # self.open_valve(False)
+            # self.close_valve(True)
+            self.reset()
+        except Exception as e:
+            print(e)
 
     def open_valve(self, state):
         self.bus.write_single_coil(int('0xE001', 16), state)
@@ -86,11 +89,11 @@ class MFC():
         return ints_to_float(response)
 
     def set_point(self, flow:int):
-        print(flow)
+        # print(flow)
         if flow > self.max_flow:
             raise ValueError("flow can't be bigger than max_flow")
         data = float_to_ints(flow)
-        print(data)
+        # print(data)
         self.bus.write_multiple_registers(int('0xA000', 16), data)
 
     def get_data(self):
@@ -117,7 +120,7 @@ class MFC():
 if __name__ == "__main__":
     mfc_config = {
             "port": 502,
-            "ip": "192.168.2.157",
+            "ip": "172.168.0.157",
             "max_flow": 20.0,
             "name": "gas_2"
         }

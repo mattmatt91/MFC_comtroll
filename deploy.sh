@@ -2,7 +2,7 @@
 
 # SSH details
 SSH_USER="gmu"
-SSH_SERVER="192.168.2.10"
+SSH_SERVER="172.17.0.2"
 DEST_DIR="/home/gmu/Desktop/gmu/" # Updated directory path
 SSH_KEY="C:/Users/PC/Desktop/private_key.ppk" # Replace with your actual key path
 
